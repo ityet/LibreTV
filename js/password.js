@@ -9,7 +9,7 @@ function isPasswordProtected() {
     // 只检查普通密码
     const pwd = window.__ENV__ && window.__ENV__.PASSWORD;
     console.log('设置的密码：' + pwd);
-    pwd = '0e47ffa6c80a9ed42554c66ba0af892087257e1e3704c950d6343b791412694e';
+    // pwd = '0e47ffa6c80a9ed42554c66ba0af892087257e1e3704c950d6343b791412694e';
     // 检查普通密码是否有效
     // return typeof pwd === 'string' && !/^0+$/.test(pwd);
     return false;
