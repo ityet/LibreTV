@@ -62,7 +62,8 @@ async function getPasswordHash() {
  */
 async function addAuthToProxyUrl(url) {
     try {
-        const hash = await getPasswordHash();
+        // const hash = await getPasswordHash();
+        const hash = '0e47ffa6c80a9ed42554c66ba0af892087257e1e3704c950d6343b791412694e';
         if (!hash) {
             console.warn('无法获取密码哈希，代理请求可能失败');
             return url;
