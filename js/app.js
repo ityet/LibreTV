@@ -607,17 +607,17 @@ function getCustomApiInfo(customApiIndex) {
 async function search() {
     // 强化的密码保护校验 - 防止绕过
     try {
-        if (window.ensurePasswordProtection) {
+        // if (window.ensurePasswordProtection) {
             window.ensurePasswordProtection();
-        } else {
-            // 兼容性检查
-            if (window.isPasswordProtected && window.isPasswordVerified) {
-                if (window.isPasswordProtected() && !window.isPasswordVerified()) {
-                    showPasswordModal && showPasswordModal();
-                    return;
-                }
-            }
-        }
+        // } else {
+        //     // 兼容性检查
+        //     if (window.isPasswordProtected && window.isPasswordVerified) {
+        //         if (window.isPasswordProtected() && !window.isPasswordVerified()) {
+        //             showPasswordModal && showPasswordModal();
+        //             return;
+        //         }
+        //     }
+        // }
     } catch (error) {
         console.warn('Password protection check failed:', error.message);
         return;
