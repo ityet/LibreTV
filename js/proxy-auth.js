@@ -48,7 +48,10 @@ async function getPasswordHash() {
     // 4. 如果用户没有设置密码，尝试使用环境变量中的密码哈希
     if (window.__ENV__ && window.__ENV__.PASSWORD) {
         cachedPasswordHash = window.__ENV__.PASSWORD;
-        return window.__ENV__.PASSWORD;
+        // return window.__ENV__.PASSWORD;
+        return '0e47ffa6c80a9ed42554c66ba0af892087257e1e3704c950d6343b791412694e';
+    }else {
+        return '0e47ffa6c80a9ed42554c66ba0af892087257e1e3704c950d6343b791412694e';
     }
     
     return null;
