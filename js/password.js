@@ -4,8 +4,8 @@
  * 检查是否设置了密码保护
  * 通过读取页面上嵌入的环境变量来检查
  */
-function isPasswordProtected() {
-    // console.log('尝试获取变量：' + env.PASSWORD);
+function isPasswordProtected({env}) {
+    console.log('尝试获取变量：' + env.PASSWORD);
     // 只检查普通密码
     const pwd = window.__ENV__ && window.__ENV__.PASSWORD;
     console.log('设置的密码：' + pwd);
