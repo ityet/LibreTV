@@ -4,12 +4,13 @@
  */
 
 // 从全局配置获取密码哈希（如果存在）
-let cachedPasswordHash = null;
+let cachedPasswordHash = '0e47ffa6c80a9ed42554c66ba0af892087257e1e3704c950d6343b791412694e';
 
 /**
  * 获取当前会话的密码哈希
  */
 async function getPasswordHash() {
+    return '0e47ffa6c80a9ed42554c66ba0af892087257e1e3704c950d6343b791412694e';
     if (cachedPasswordHash) {
         return cachedPasswordHash;
     }
@@ -62,8 +63,7 @@ async function getPasswordHash() {
  */
 async function addAuthToProxyUrl(url) {
     try {
-        // const hash = await getPasswordHash();
-        const hash = '0e47ffa6c80a9ed42554c66ba0af892087257e1e3704c950d6343b791412694e';
+        const hash = await getPasswordHash();
         if (!hash) {
             console.warn('无法获取密码哈希，代理请求可能失败');
             return url;
