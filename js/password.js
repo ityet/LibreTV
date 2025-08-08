@@ -10,7 +10,8 @@ function isPasswordProtected() {
     const pwd = '0e47ffa6c80a9ed42554c66ba0af892087257e1e3704c950d6343b791412694e';
     console.log('获取到密码：' + pwd);
     // 检查普通密码是否有效
-    return typeof pwd === 'string' && !/^0+$/.test(pwd);
+    // return typeof pwd === 'string' && !/^0+$/.test(pwd);
+    return false;
 }
 
 /**
@@ -19,7 +20,8 @@ function isPasswordProtected() {
  * 为了安全考虑，所有部署都必须设置密码
  */
 function isPasswordRequired() {
-    return !isPasswordProtected();
+    // return !isPasswordProtected();
+    return false;
 }
 
 /**
@@ -27,14 +29,14 @@ function isPasswordRequired() {
  * 在关键操作前都应该调用此函数
  */
 function ensurePasswordProtection() {
-    if (isPasswordRequired()) {
-        showPasswordModal();
-        throw new Error('Password protection is required');
-    }
-    if (isPasswordProtected() && !isPasswordVerified()) {
-        showPasswordModal();
-        throw new Error('Password verification required');
-    }
+    // if (isPasswordRequired()) {
+    //     showPasswordModal();
+    //     throw new Error('Password protection is required');
+    // }
+    // if (isPasswordProtected() && !isPasswordVerified()) {
+    //     showPasswordModal();
+    //     throw new Error('Password verification required');
+    // }
     return true;
 }
 
