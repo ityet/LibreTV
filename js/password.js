@@ -7,8 +7,10 @@
 function isPasswordProtected() {
     // 只检查普通密码
     const pwd = window.__ENV__ && window.__ENV__.PASSWORD;
-    console.log('获取到密码：'+pwd);
-    pwd='xxl1009';
+    console.log('获取环境变量：' + window.env);
+    console.log('获取密码：' + window.env.PASSWORD);
+    console.log('获取到密码：' + pwd);
+    
     // 检查普通密码是否有效
     return typeof pwd === 'string' && !/^0+$/.test(pwd);
 }
