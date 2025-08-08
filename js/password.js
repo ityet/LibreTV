@@ -7,10 +7,7 @@
 function isPasswordProtected() {
     // 只检查普通密码
     const pwd = window.__ENV__ && window.__ENV__.PASSWORD;
-    console.log('获取环境变量：' + window.env);
-    console.log('获取密码：' + window.env.PASSWORD);
     console.log('获取到密码：' + pwd);
-    
     // 检查普通密码是否有效
     return typeof pwd === 'string' && !/^0+$/.test(pwd);
 }
@@ -48,10 +45,13 @@ window.isPasswordRequired = isPasswordRequired;
  */
 async function verifyPassword(password) {
     try {
-        const correctHash = window.__ENV__?.PASSWORD;
+        // const correctHash = window.__ENV__?.PASSWORD;
+        const correctHash = '0e47ffa6c80a9ed42554c66ba0af892087257e1e3704c950d6343b791412694e';
+        console.log('设置的密码：'+correctHash);
         if (!correctHash) return false;
 
         const inputHash = await sha256(password);
+        console.log('输入的密码：'+pwd);
         const isValid = inputHash === correctHash;
 
         if (isValid) {
@@ -211,18 +211,18 @@ function hidePasswordError() {
 async function handlePasswordSubmit() {
     const passwordInput = document.getElementById('passwordInput');
     const password = passwordInput ? passwordInput.value.trim() : '';
-    // if (await verifyPassword(password)) {
+    if (await verifyPassword(password)) {
         hidePasswordModal();
 
         // 触发密码验证成功事件
         document.dispatchEvent(new CustomEvent('passwordVerified'));
-    // } else {
-    //     showPasswordError();
-    //     if (passwordInput) {
-    //         passwordInput.value = '';
-    //         passwordInput.focus();
-    //     }
-    // }
+    } else {
+        showPasswordError();
+        if (passwordInput) {
+            passwordInput.value = '';
+            passwordInput.focus();
+        }
+    }
 }
 
 /**
